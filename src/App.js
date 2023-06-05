@@ -1,6 +1,12 @@
+import SubmissionForm from "./SubmissionForm/SubmissionForm";
+
 function App() {
   return (
-    <h1>Hello from App</h1>
+    <>
+      <h1>Submission Form: Ooga Booga</h1>
+      <SubmissionForm />
+    </>
+
   );
 }
 
