@@ -43,7 +43,7 @@ const SubmissionForm = () => {
             e.preventDefault();
             let errors = validate();
             if (errors.length > 0) {
-                showErrors(errors);
+                setErrors(errors);
             }
         }
 
@@ -62,27 +62,28 @@ const SubmissionForm = () => {
         }
 
         const toggleNotifications = () => {
-            user.notification = !user.notification
+            setUser({ ...user, notification: !user.notification})
         }
 
     return (
         <>
+            {showErrors()}
             <form onSubmit={handleSubmit}>
                 <label>Name:
-                    <input type="text" value={user.name} onChange={handleChange('name')}/>
+                    <input type="text" value={user.name} onChange={handleChange('name')} required/>
 
                 </label>
 
                 <br/><br/>
 
                 <label>Email:
-                    <input type="text" value={user.email} onChange={handleChange('email')}/>
+                    <input type="text" value={user.email} onChange={handleChange('email')} required/>
                 </label>
 
                 <br/><br/>
 
                 <label>Phone Number:
-                    <input type="number" value={user.phoneNumber} onChange={handleChange('phoneNumber')}/>
+                    <input type="number" value={user.phoneNumber} onChange={handleChange('phoneNumber')} required/>
                 </label>
 
                 <br/><br/>
@@ -101,10 +102,10 @@ const SubmissionForm = () => {
                 <p>Staff:
                 <br/>
                     <label>Instructor
-                        <input type="radio" name="staff" value={user.staff} onChange={handleChange('staff')}/>
+                        <input type="radio" name="staff" value="instructor" onChange={handleChange('staff')}/>
                     </label>
                     <label>Student
-                        <input type="radio" name="staff" value={user.staff} onChange={handleChange('staff')}/>
+                        <input type="radio" name="staff" value="student" onChange={handleChange('staff')}/>
                     </label>
                 </p>
 
@@ -119,7 +120,7 @@ const SubmissionForm = () => {
 
                 <label>Receive Notifications?
                 <br/>
-                    <input type="checkbox" name="notification" value={user.notification} onChange={toggleNotifications('notification')}></input> Yes
+                    <input type="checkbox" name="notification" checked={user.notification} onChange={toggleNotifications}></input> Yes
                 </label>
 
                 <br/><br/>
