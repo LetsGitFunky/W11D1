@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SubmissionForm.css"
 
 const SubmissionForm = () => {
         const [user, setUser] = useState({
@@ -68,10 +69,9 @@ const SubmissionForm = () => {
     return (
         <>
             {showErrors()}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form-container">
                 <label>Name:
                     <input type="text" value={user.name} onChange={handleChange('name')} required/>
-
                 </label>
 
                 <br/><br/>
@@ -99,16 +99,17 @@ const SubmissionForm = () => {
 
                 <br/><br/>
 
-                <p>Staff:
+                <label>Staff:
                 <br/>
-                    <label>Instructor
+                    <label className="staff">Instructor
                         <input type="radio" name="staff" value="instructor" onChange={handleChange('staff')}/>
                     </label>
-                    <label>Student
+                    <label className="staff">Student
                         <input type="radio" name="staff" value="student" onChange={handleChange('staff')}/>
                     </label>
-                </p>
+                </label>
 
+                <br/>
                 <br/>
 
                 <label>Bio:
@@ -120,7 +121,8 @@ const SubmissionForm = () => {
 
                 <label>Receive Notifications?
                 <br/>
-                    <input type="checkbox" name="notification" checked={user.notification} onChange={toggleNotifications}></input> Yes
+                <label className="yes">Yes</label>
+                    <input type="checkbox" name="notification" checked={user.notification} onChange={toggleNotifications}></input>
                 </label>
 
                 <br/><br/>

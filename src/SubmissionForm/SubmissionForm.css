@@ -1,0 +1,19 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(127deg, #f7a5e9, #ad91e5, rgb(255, 139, 23));
+    align-items: center;
+    padding-top: 8%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    justify-content: center;
+    border: ridge 1px;
+    border-radius: 5em;
+}
